@@ -1,0 +1,1063 @@
+/* ==========================================================================
+   PANAMÁ HISTÓRICO - SISTEMA DE DISEÑO CSS
+   Fuerte San Lorenzo & El Canal de Panamá
+   ========================================================================== */
+
+:root {
+  /* Paleta de Colores Principal */
+  --gold-primary: #D4AF37;
+  --gold-hover: #F39C12;
+  --teal-caribbean: #00A896;
+  --teal-glow: rgba(0, 168, 150, 0.3);
+  --blue-canal: #028090;
+  --blue-deep: #05668D;
+  --green-chagres: #2A9D8F;
+  --sand-stone: #E9C46A;
+  --rust-cannon: #E76F51;
+
+  /* Fondos y Elevaciones (Modo Oscuro Predeterminado) */
+  --bg-main: #0A1118;
+  --bg-card: rgba(18, 30, 45, 0.7);
+  --bg-card-hover: rgba(28, 45, 66, 0.85);
+  --bg-nav: rgba(10, 17, 24, 0.85);
+
+  /* Bordes y Glassmorphism */
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-border-glow: rgba(212, 175, 55, 0.4);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+
+  /* Texto */
+  --text-main: #F8FAFC;
+  --text-muted: #94A3B8;
+  --text-highlight: #E9C46A;
+
+  /* Tipografías */
+  --font-heading: 'Outfit', -apple-system, sans-serif;
+  --font-body: 'Inter', -apple-system, sans-serif;
+
+  /* Transiciones */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Reset Global */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+  background-image: 
+    radial-gradient(circle at 15% 20%, rgba(0, 168, 150, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 85% 60%, rgba(212, 175, 55, 0.06) 0%, transparent 45%),
+    radial-gradient(circle at 50% 90%, rgba(2, 128, 144, 0.1) 0%, transparent 50%);
+  background-attachment: fixed;
+}
+
+/* Scrollbar Personalizada */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #060B11;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--blue-canal);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--teal-caribbean);
+}
+
+/* Tipografía y Títulos */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-main);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #FFFFFF 20%, var(--gold-primary) 60%, var(--teal-caribbean) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-gold {
+  background: linear-gradient(135deg, #FFE082 0%, var(--gold-primary) 50%, var(--rust-cannon) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-blue {
+  background: linear-gradient(135deg, #80E9FF 0%, var(--teal-caribbean) 50%, var(--blue-canal) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Layout Principal */
+.container {
+  width: 90%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+section {
+  padding: 6rem 0;
+  position: relative;
+}
+
+/* Header & Nav */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: var(--bg-nav);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--glass-border);
+  transition: var(--transition-normal);
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.logo-badge {
+  background: linear-gradient(135deg, var(--gold-primary), var(--rust-cannon));
+  color: #000;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+}
+
+.nav-menu {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.nav-link {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  transition: var(--transition-fast);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--text-main);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.nav-link.active {
+  color: var(--gold-primary);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btn-icon {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--glass-border);
+  color: var(--text-main);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-fast);
+  font-size: 1.1rem;
+}
+
+.btn-icon:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+  color: var(--gold-primary);
+}
+
+.btn-icon.active-sound {
+  background: var(--teal-caribbean);
+  color: #000;
+  box-shadow: 0 0 15px var(--teal-glow);
+}
+
+/* Buscador en Nav */
+.search-wrapper {
+  position: relative;
+}
+
+.search-input {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  padding: 0.5rem 1rem 0.5rem 2.5rem;
+  border-radius: 20px;
+  color: var(--text-main);
+  font-size: 0.9rem;
+  width: 180px;
+  transition: var(--transition-normal);
+}
+
+.search-input:focus {
+  outline: none;
+  width: 240px;
+  border-color: var(--teal-caribbean);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 12px var(--teal-glow);
+}
+
+.search-icon {
+  position: absolute;
+  left: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+/* HERO SECTION */
+.hero {
+  min-height: 100vh;
+  padding-top: 120px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid var(--glass-border-glow);
+  color: var(--gold-primary);
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+}
+
+.hero-subtitle {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  margin-bottom: 2.5rem;
+  max-width: 580px;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 0.85rem 1.8rem;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--transition-normal);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  border: none;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--gold-primary), var(--gold-hover));
+  color: #0F172A;
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(212, 175, 55, 0.45);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-main);
+  border: 1px solid var(--glass-border);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-3px);
+  border-color: var(--teal-caribbean);
+}
+
+/* Tarjeta Hero Interactiva */
+.hero-visual {
+  position: relative;
+}
+
+.hero-card-stack {
+  position: relative;
+  height: 480px;
+  width: 100%;
+}
+
+.hero-image-card {
+  position: absolute;
+  width: 85%;
+  height: 380px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: var(--glass-shadow);
+  border: 1px solid var(--glass-border);
+  transition: var(--transition-bounce);
+  cursor: pointer;
+}
+
+.hero-image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.hero-image-card:hover img {
+  transform: scale(1.06);
+}
+
+.hero-card-1 {
+  top: 0;
+  right: 0;
+  z-index: 2;
+}
+
+.hero-card-2 {
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  transform: rotate(-4deg);
+}
+
+.hero-card-1:hover {
+  transform: translateY(-8px) scale(1.02);
+  z-index: 3;
+}
+
+.hero-card-2:hover {
+  transform: rotate(0deg) translateY(-8px) scale(1.02);
+  z-index: 3;
+}
+
+.card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem;
+  background: linear-gradient(to top, rgba(10, 17, 24, 0.95), transparent);
+}
+
+.card-title {
+  font-size: 1.25rem;
+  color: #FFF;
+  margin-bottom: 0.25rem;
+}
+
+.card-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* ESTADÍSTICAS RÁPIDAS */
+.stats-banner {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 2rem;
+  margin-top: -3rem;
+  position: relative;
+  z-index: 10;
+}
+
+.stat-item {
+  text-align: center;
+  border-right: 1px solid var(--glass-border);
+}
+
+.stat-item:last-child {
+  border-right: none;
+}
+
+.stat-number {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--gold-primary);
+  display: block;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ENCABEZADOS DE SECCIÓN */
+.section-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 4rem auto;
+}
+
+.section-badge {
+  display: inline-block;
+  padding: 0.35rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+}
+
+.badge-gold {
+  background: rgba(212, 175, 55, 0.15);
+  color: var(--gold-primary);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.badge-blue {
+  background: rgba(2, 128, 144, 0.15);
+  color: var(--teal-caribbean);
+  border: 1px solid rgba(0, 168, 150, 0.3);
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+/* SECCIÓN 1: FUERTE SAN LORENZO */
+.san-lorenzo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  margin-bottom: 5rem;
+}
+
+.info-card-box {
+  background: var(--bg-card);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  padding: 2.5rem;
+  box-shadow: var(--glass-shadow);
+}
+
+.info-card-box h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1.2rem;
+  color: var(--gold-primary);
+}
+
+.info-card-box p {
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
+  font-size: 1rem;
+}
+
+/* Hotspots de San Lorenzo */
+.hotspot-viewer {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  height: 420px;
+}
+
+.hotspot-viewer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hotspot {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--gold-primary);
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.9rem;
+  cursor: pointer;
+  box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7);
+  animation: pulse-ring 2s infinite;
+  transition: transform 0.2s ease;
+  z-index: 10;
+}
+
+.hotspot:hover {
+  transform: scale(1.25);
+  background: #FFF;
+}
+
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
+  70% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+}
+
+.hotspot-1 { top: 35%; left: 25%; }
+.hotspot-2 { top: 60%; left: 55%; }
+.hotspot-3 { top: 40%; left: 78%; }
+
+.hotspot-tooltip {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  right: 1.5rem;
+  background: rgba(10, 17, 24, 0.92);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--gold-primary);
+  border-radius: 16px;
+  padding: 1.25rem;
+  z-index: 20;
+  transition: var(--transition-normal);
+}
+
+.hotspot-tooltip h4 {
+  color: var(--gold-primary);
+  margin-bottom: 0.4rem;
+}
+
+/* LÍNEA DEL TIEMPO INTERACTIVA */
+.timeline-container {
+  position: relative;
+  padding: 2rem 0;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.timeline-progress {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 4px;
+  background: linear-gradient(to right, var(--gold-primary), var(--teal-caribbean));
+  transform: translateY(-50%);
+  z-index: 1;
+  transition: width 0.4s ease;
+  width: 30%;
+}
+
+.timeline-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.timeline-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 18px;
+  padding: 1.5rem;
+  transition: var(--transition-normal);
+  cursor: pointer;
+}
+
+.timeline-card:hover, .timeline-card.active {
+  border-color: var(--gold-primary);
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(212, 175, 55, 0.2);
+  background: var(--bg-card-hover);
+}
+
+.timeline-year {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--gold-primary);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.timeline-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   SECCIÓN 2: SIMULADOR INTERACTIVO DE ESCLUSAS DEL CANAL DE PANAMÁ
+   ========================================================================== */
+.simulator-wrapper {
+  background: rgba(10, 20, 32, 0.9);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--blue-canal);
+  border-radius: 28px;
+  padding: 2.5rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(2, 128, 144, 0.2);
+  margin-top: 2rem;
+}
+
+.simulator-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.simulator-controls {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.sim-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--glass-border);
+  color: var(--text-main);
+  padding: 0.6rem 1.2rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: var(--transition-fast);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sim-btn:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: var(--teal-caribbean);
+}
+
+.sim-btn.active {
+  background: linear-gradient(135deg, var(--teal-caribbean), var(--blue-canal));
+  color: #FFF;
+  border-color: transparent;
+  box-shadow: 0 4px 15px var(--teal-glow);
+}
+
+/* Lienzo Gráfico Interactivo de Esclusas */
+.lock-stage-container {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  background: linear-gradient(to bottom, #07131E 0%, #0F2537 70%, #16324A 100%);
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 1.5rem;
+}
+
+#lockCanvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Panel Informativo de Pasos */
+.step-banner {
+  background: rgba(2, 128, 144, 0.15);
+  border: 1px solid rgba(0, 168, 150, 0.4);
+  border-radius: 16px;
+  padding: 1.25rem 1.75rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.step-number-badge {
+  background: linear-gradient(135deg, var(--teal-caribbean), var(--blue-canal));
+  color: #FFF;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  font-weight: 800;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px var(--teal-glow);
+}
+
+.step-info h4 {
+  font-size: 1.2rem;
+  color: #FFF;
+  margin-bottom: 0.25rem;
+}
+
+.step-info p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* COMPARATIVA ESCLUSAS TRADICIONALES VS NEOPANAMAX */
+.comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 4rem;
+}
+
+.comp-card {
+  background: var(--bg-card);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 2rem;
+  transition: var(--transition-normal);
+}
+
+.comp-card:hover {
+  border-color: var(--teal-caribbean);
+  transform: translateY(-5px);
+}
+
+.comp-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.comp-list {
+  list-style: none;
+}
+
+.comp-list li {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.comp-list li i {
+  color: var(--teal-caribbean);
+}
+
+/* MAPA INTERACTIVO DEL ISTMO */
+.map-section-wrapper {
+  background: var(--bg-card);
+  border: 1px solid var(--glass-border);
+  border-radius: 28px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  align-items: center;
+}
+
+.map-visual {
+  height: 480px;
+  position: relative;
+  overflow: hidden;
+}
+
+.map-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.map-details {
+  padding: 3rem;
+}
+
+.map-details h3 {
+  font-size: 2rem;
+  margin-bottom: 1.25rem;
+  color: var(--gold-primary);
+}
+
+.map-location-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.location-item {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--glass-border);
+  padding: 1rem;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.location-item:hover, .location-item.active {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--gold-primary);
+  transform: translateX(6px);
+}
+
+.location-item h4 {
+  font-size: 1.05rem;
+  color: #FFF;
+  margin-bottom: 0.25rem;
+}
+
+.location-item p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* TRIVIA INTERACTIVA "DESAFÍO ISTMEÑO" */
+.trivia-box {
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--bg-card);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--glass-border-glow);
+  border-radius: 28px;
+  padding: 3rem;
+  text-align: center;
+  box-shadow: var(--glass-shadow);
+}
+
+.trivia-question {
+  font-size: 1.4rem;
+  margin-bottom: 2rem;
+  color: #FFF;
+}
+
+.trivia-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.trivia-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--glass-border);
+  color: var(--text-main);
+  padding: 1.1rem;
+  border-radius: 16px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  text-align: left;
+}
+
+.trivia-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: var(--gold-primary);
+  transform: translateY(-2px);
+}
+
+.trivia-btn.correct {
+  background: rgba(42, 157, 143, 0.3) !important;
+  border-color: #2A9D8F !important;
+  color: #A7F3D0 !important;
+}
+
+.trivia-btn.incorrect {
+  background: rgba(231, 111, 81, 0.3) !important;
+  border-color: #E76F51 !important;
+  color: #FECACA !important;
+}
+
+.score-badge {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  color: var(--gold-primary);
+  margin-top: 1rem;
+}
+
+/* FOOTER */
+.footer {
+  background: #050B10;
+  border-top: 1px solid var(--glass-border);
+  padding: 4rem 0 2rem 0;
+  margin-top: 6rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footer-brand p {
+  color: var(--text-muted);
+  margin-top: 1rem;
+  max-width: 360px;
+  font-size: 0.9rem;
+}
+
+.footer-links h4 {
+  font-size: 1.1rem;
+  margin-bottom: 1.25rem;
+  color: var(--gold-primary);
+}
+
+.footer-links ul {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 0.6rem;
+}
+
+.footer-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: var(--transition-fast);
+}
+
+.footer-links a:hover {
+  color: var(--gold-primary);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 992px) {
+  .hero-grid, .san-lorenzo-grid, .map-section-wrapper, .comparison-grid {
+    grid-template-columns: 1fr;
+  }
+  .hero-title {
+    font-size: 2.8rem;
+  }
+  .timeline-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+  .stats-banner {
+    grid-template-columns: 1fr 1fr;
+  }
+  .stat-item {
+    border-right: none;
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: 1rem;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav-menu {
+    display: none;
+  }
+  .hero-title {
+    font-size: 2.2rem;
+  }
+  .timeline-cards {
+    grid-template-columns: 1fr;
+  }
+  .trivia-options {
+    grid-template-columns: 1fr;
+  }
+}

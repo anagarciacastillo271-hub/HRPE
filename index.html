@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panamá Histórico | Fuerte San Lorenzo y Canal de Panamá (Esclusas Interactivas)</title>
+  <meta name="description" content="Página web informativa e interactiva sobre dos joyas históricas de Panamá: El Fuerte San Lorenzo el Real de Chagres y el funcionamiento paso a paso de las Esclusas del Canal de Panamá.">
+
+  <!-- Fuentes de Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Iconografía Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Estilos CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- NAVEGACIÓN PRINCIPAL (GLASSMORPHISM NAV) -->
+  <nav class="navbar">
+    <div class="container navbar-container">
+      <a href="#" class="logo">
+        <div class="logo-badge">🇵🇦</div>
+        <span>Panamá<span style="color: var(--gold-primary);">Histórico</span></span>
+      </a>
+
+      <ul class="nav-menu">
+        <li><a href="#hero" class="nav-link active"><i class="fas fa-compass"></i> Inicio</a></li>
+        <li><a href="#fuerte-san-lorenzo" class="nav-link"><i class="fas fa-shield-alt"></i> Fuerte San Lorenzo</a></li>
+        <li><a href="#canal-panama" class="nav-link"><i class="fas fa-water"></i> El Canal y Esclusas</a></li>
+        <li><a href="#mapa-interactivo" class="nav-link"><i class="fas fa-map-marked-alt"></i> Mapa del Istmo</a></li>
+        <li><a href="#trivia" class="nav-link"><i class="fas fa-gamepad"></i> Trivia</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <div class="search-wrapper">
+          <i class="fas fa-search search-icon"></i>
+          <input type="text" id="searchInput" class="search-input" placeholder="Buscar lugar o tema...">
+        </div>
+        <button id="toggleSoundBtn" class="btn-icon" title="Activar/Desactivar sonido de la bocina del Canal">
+          <i class="fas fa-volume-mute"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section id="hero" class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-tag">
+            <i class="fas fa-monument"></i> Patrimonio e Ingeniería Panameña
+          </div>
+          <h1 class="hero-title">
+            Descubre los Guardianes del Istmo: <br>
+            <span class="gradient-text-gold">Fuerte San Lorenzo</span> y el <span class="gradient-text-blue">Canal de Panamá</span>
+          </h1>
+          <p class="hero-subtitle">
+            Sumérgete en una experiencia interactiva única. Explora la mítica fortaleza colonial que custodiaba la ruta del oro en el Caribe y simula en tiempo real la física de las esclusas que mueven el comercio mundial.
+          </p>
+          <div class="hero-cta">
+            <a href="#canal-panama" class="btn btn-primary">
+              <i class="fas fa-play-circle"></i> Probar Simulador de Esclusas
+            </a>
+            <a href="#fuerte-san-lorenzo" class="btn btn-secondary">
+              <i class="fas fa-fort-awesome"></i> Explorar Fuerte San Lorenzo
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-card-stack">
+            <div class="hero-image-card hero-card-1" onclick="document.getElementById('canal-panama').scrollIntoView({behavior: 'smooth'})">
+              <img src="assets/images/canal_esclusas.png" alt="Esclusas del Canal de Panamá">
+              <div class="card-overlay">
+                <h3 class="card-title">Canal de Panamá</h3>
+                <p class="card-desc">Elevando naves a 26m sobre el nivel del mar mediante gravedad.</p>
+              </div>
+            </div>
+            <div class="hero-image-card hero-card-2" onclick="document.getElementById('fuerte-san-lorenzo').scrollIntoView({behavior: 'smooth'})">
+              <img src="assets/images/san_lorenzo.png" alt="Fuerte San Lorenzo Panamá">
+              <div class="card-overlay">
+                <h3 class="card-title">Fuerte San Lorenzo</h3>
+                <p class="card-desc">Baluarte del siglo XVI sobre el Río Chagres.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BANNER DE ESTADÍSTICAS -->
+      <div class="stats-banner">
+        <div class="stat-item">
+          <span class="stat-number">1595</span>
+          <span class="stat-label">Construcción Inicial</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">26 m</span>
+          <span class="stat-label">Elevación del Canal</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">14,000+</span>
+          <span class="stat-label">Tránsitos Anuales</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">UNESCO</span>
+          <span class="stat-label">Patrimonio de la Humanidad</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 1: FUERTE SAN LORENZO EL REAL DE CHAGRES -->
+  <section id="fuerte-san-lorenzo">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge badge-gold"><i class="fas fa-shield-halved"></i> Bastión Colonial</span>
+        <h2 class="section-title">El Fuerte San Lorenzo el Real de Chagres</h2>
+        <p class="section-subtitle">
+          Ubicado estratégicamente en la desembocadura del Río Chagres en el Caribe, San Lorenzo fue el centinela que protegió la ruta transístmica del oro frente a piratas y corsarios legendarios.
+        </p>
+      </div>
+
+      <div class="san-lorenzo-grid">
+        <div class="info-card-box">
+          <h3><i class="fas fa-chess-rook"></i> El Guardián del Río Chagres</h3>
+          <p>
+            Construido por orden del Rey Felipe II de España a finales del siglo XVI, el fuerte controlaba la entrada de mercancías y tesoros que viajaban desde Perú a través del <strong>Camino de Cruces</strong> y el Río Chagres con destino a España.
+          </p>
+          <p>
+            Su ubicación sobre un acantilado de 25 metros de altura le otorgaba un dominio absoluto sobre la boca del río, convirtiéndolo en un objetivo militar codiciado por corsarios como <strong>Sir Francis Drake</strong> y el temido pirata <strong>Henry Morgan</strong>, quien lo destruyó en 1671 antes de saquear la Ciudad de Panamá.
+          </p>
+          <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+            <div style="background: rgba(212,175,55,0.1); padding: 0.8rem 1.2rem; border-radius: 12px; border: 1px solid var(--gold-primary);">
+              <strong style="color: var(--gold-primary); font-size: 0.9rem;">Patrimonio UNESCO</strong>
+              <p style="font-size: 0.8rem; margin: 0;">Declarado en 1980 por su valor arquitectónico militar.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- VISUALIZADOR CON HOTSPOTS INTERACTIVOS -->
+        <div class="hotspot-viewer">
+          <img src="assets/images/san_lorenzo.png" alt="Detalle del Fuerte San Lorenzo">
+          
+          <div class="hotspot hotspot-1" data-id="1" title="Haz clic para explorar el foso">1</div>
+          <div class="hotspot hotspot-2" data-id="2" title="Haz clic para explorar los cañones">2</div>
+          <div class="hotspot hotspot-3" data-id="3" title="Haz clic para explorar la casa del castellano">3</div>
+
+          <div id="hotspotTooltip" class="hotspot-tooltip">
+            <h4><i class="fas fa-info-circle"></i> Haz clic en los puntos numerados</h4>
+            <p>Descubre los secretos defensivos de la fortaleza colonial.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- LÍNEA DEL TIEMPO INTERACTIVA SAN LORENZO -->
+      <h3 style="text-align: center; margin-bottom: 2rem; color: var(--gold-primary);">
+        <i class="fas fa-history"></i> Cronología de Eventos Históricos
+      </h3>
+
+      <div class="timeline-container">
+        <div class="timeline-line"></div>
+        <div id="timelineProgress" class="timeline-progress"></div>
+
+        <div class="timeline-cards">
+          <div class="timeline-card active">
+            <span class="timeline-year">1595</span>
+            <h4 class="timeline-title">Primer Atentado</h4>
+            <p class="timeline-desc">Sir Francis Drake ataca la desembocadura del Chagres, impulsando la fortificación del acantilado.</p>
+          </div>
+
+          <div class="timeline-card">
+            <span class="timeline-year">1671</span>
+            <h4 class="timeline-title">Ataque de Henry Morgan</h4>
+            <p class="timeline-desc">El pirata Henry Morgan toma el fuerte tras una cruenta batalla antes de cruzar a Panamá la Vieja.</p>
+          </div>
+
+          <div class="timeline-card">
+            <span class="timeline-year">1740</span>
+            <h4 class="timeline-title">Reconstrucción Piedra</h4>
+            <p class="timeline-desc">Diseño del ingeniero militar Ignacio de Sala en piedra labrada neoclásica tal como luce hoy.</p>
+          </div>
+
+          <div class="timeline-card">
+            <span class="timeline-year">1980</span>
+            <h4 class="timeline-title">Estatus UNESCO</h4>
+            <p class="timeline-desc">Reconocido globalmente como Monumento Histórico y Patrimonio Cultural de la Humanidad.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 2: EL CANAL DE PANAMÁ Y EL FUNCIONAMIENTO DE SUS ESCLUSAS -->
+  <section id="canal-panama">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge badge-blue"><i class="fas fa-cogs"></i> Maravilla de la Ingeniería</span>
+        <h2 class="section-title">El Canal de Panamá y sus Esclusas</h2>
+        <p class="section-subtitle">
+          Una obra colosal inaugurada en 1914 que une el Océano Atlántico con el Océano Pacífico. Aprende interactiva y físicamente cómo funcionan sus compuertas y cámaras de elevación por gravedad.
+        </p>
+      </div>
+
+      <!-- SIMULADOR INTERACTIVO DE ESCLUSAS EN TIEMPO REAL -->
+      <div class="simulator-wrapper">
+        <div class="simulator-header">
+          <div>
+            <h3 style="font-size: 1.5rem; color: #FFF; display: flex; align-items: center; gap: 0.5rem;">
+              <i class="fas fa-ship" style="color: var(--teal-caribbean);"></i> Simulador de Elevación de Esclusas
+            </h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">
+              Haz clic en los botones para avanzar la simulación o usa el modo automático.
+            </p>
+          </div>
+
+          <div class="simulator-controls">
+            <button id="simPrevStep" class="sim-btn"><i class="fas fa-step-backward"></i> Anterior</button>
+            <button id="simNextStep" class="sim-btn"><i class="fas fa-step-forward"></i> Siguiente Paso</button>
+            <button id="simAutoPlay" class="sim-btn active"><i class="fas fa-play"></i> Auto Simulación</button>
+          </div>
+        </div>
+
+        <!-- STAGE DE ANIMACIÓN EN CANVAS HTML5 -->
+        <div class="lock-stage-container">
+          <canvas id="lockCanvas"></canvas>
+        </div>
+
+        <!-- BANNER DE PASO ACTUAL -->
+        <div class="step-banner">
+          <div id="stepBadgeNumber" class="step-number-badge">1</div>
+          <div class="step-info">
+            <h4 id="stepTitle">1. Entrada desde el Océano</h4>
+            <p id="stepDescription">El barco entra a la primera cámara al nivel del mar. Las compuertas traseras se cierran firmemente.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- COMPARACIÓN DE ESCLUSAS TRADICIONALES VS NEOPANAMAX -->
+      <div class="comparison-grid">
+        <div class="comp-card">
+          <h3 style="color: var(--teal-caribbean);"><i class="fas fa-anchor"></i> Esclusas Tradicionales (Miraflores, Pedro Miguel, Gatún)</h3>
+          <ul class="comp-list">
+            <li><i class="fas fa-check-circle"></i> Inauguradas en 1914 para buques de tamaño Panamax.</li>
+            <li><i class="fas fa-check-circle"></i> Compuertas de bisagra de acero accionado hidráulicamente.</li>
+            <li><i class="fas fa-check-circle"></i> Guiadas por locomotoras mecánicas llamadas <strong>mulas eléctricas</strong>.</li>
+            <li><i class="fas fa-check-circle"></i> Dimensiones de cámaras: 33.5 metros de ancho por 304.8 metros de largo.</li>
+          </ul>
+        </div>
+
+        <div class="comp-card">
+          <h3 style="color: var(--gold-primary);"><i class="fas fa-ship"></i> Esclusas Ampliadas Neopanamax (Cocolí y Agua Clara)</h3>
+          <ul class="comp-list">
+            <li><i class="fas fa-check-circle"></i> Inauguradas en 2016 para mega portacontenedores Neopanamax.</li>
+            <li><i class="fas fa-check-circle"></i> Compuertas rodantes gigantescas sobre rieles submarinos.</li>
+            <li><i class="fas fa-check-circle"></i> Guiadas por remolcadores de alta maniobrabilidad.</li>
+            <li><i class="fas fa-check-circle"></i> Tinas de reutilización de agua que ahorran el 60% de agua dulce por tránsito.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 3: MAPA INTERACTIVO Y CONEXIÓN HISTÓRICA DEL ISTMO -->
+  <section id="mapa-interactivo">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge badge-gold"><i class="fas fa-globe-americas"></i> Geografía Histórica</span>
+        <h2 class="section-title">Mapa de la Ruta Transístmica</h2>
+        <p class="section-subtitle">
+          Observa cómo el Río Chagres conecta el Fuerte San Lorenzo con la cuenca del Canal de Panamá y el Lago Gatún.
+        </p>
+      </div>
+
+      <div class="map-section-wrapper">
+        <div class="map-visual">
+          <img src="assets/images/panama_map.png" alt="Mapa ilustrado del Istmo de Panamá">
+        </div>
+
+        <div class="map-details">
+          <h3>Puntos Clave de la Ruta</h3>
+          <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
+            Haz clic en los puntos geográficos para conocer su función histórica:
+          </p>
+
+          <div class="map-location-list">
+            <div class="location-item active" data-loc="chagres">
+              <h4>1. Desembocadura del Río Chagres</h4>
+              <p>Entrada natural desde el Mar Caribe utilizada desde el siglo XVI.</p>
+            </div>
+
+            <div class="location-item" data-loc="sanlorenzo">
+              <h4>2. Fuerte San Lorenzo el Real</h4>
+              <p>Baluarte en el acantilado caribeño que resguardaba el comercio imperial.</p>
+            </div>
+
+            <div class="location-item" data-loc="gatun">
+              <h4>3. Lago Gatún y Cuenca Hidrográfica</h4>
+              <p>El corazón de agua dulce de 435 km² que alimenta las esclusas.</p>
+            </div>
+
+            <div class="location-item" data-loc="esclusas">
+              <h4>4. Esclusas de Miraflores y Cocolí</h4>
+              <p>Escalones acuáticos que bajan los buques hacia el Océano Pacífico.</p>
+            </div>
+          </div>
+
+          <div id="locationDetailBox" style="margin-top: 1.5rem; background: rgba(0,168,150,0.1); border: 1px solid var(--teal-caribbean); padding: 1rem; border-radius: 12px;">
+            <p id="locationDetailText" style="font-size: 0.9rem; color: var(--text-main); margin: 0;">
+              La desembocadura del Río Chagres era la entrada principal para la navegación colonial transístmica.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 4: TRIVIA INTERACTIVA "DESAFÍO ISTMEÑO" -->
+  <section id="trivia">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge badge-blue"><i class="fas fa-brain"></i> Pon a prueba tu conocimiento</span>
+        <h2 class="section-title">El Desafío Istmeño</h2>
+        <p class="section-subtitle">
+          Demuestra cuánto has aprendido sobre el Fuerte San Lorenzo y el Canal de Panamá.
+        </p>
+      </div>
+
+      <div class="trivia-box">
+        <div id="triviaQuestion" class="trivia-question">
+          Cargando pregunta...
+        </div>
+
+        <div id="triviaOptions" class="trivia-options">
+          <!-- Opciones inyectadas por JS -->
+        </div>
+
+        <div id="triviaScore" class="score-badge">
+          Puntaje: 0 / 100
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo">
+            <div class="logo-badge">🇵🇦</div>
+            <span>Panamá<span style="color: var(--gold-primary);">Histórico</span></span>
+          </div>
+          <p>
+            Una plataforma educativa e interactiva dedicada a resaltar el rico patrimonio colonial y la maravilla de ingeniería del Canal de Panamá.
+          </p>
+        </div>
+
+        <div class="footer-links">
+          <h4>Secciones</h4>
+          <ul>
+            <li><a href="#hero">Inicio</a></li>
+            <li><a href="#fuerte-san-lorenzo">Fuerte San Lorenzo</a></li>
+            <li><a href="#canal-panama">Canal de Panamá y Esclusas</a></li>
+            <li><a href="#mapa-interactivo">Mapa del Istmo</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>Recursos</h4>
+          <ul>
+            <li><a href="https://mppa.gob.pa/" target="_blank" rel="noopener">Ministerio de Cultura de Panamá</a></li>
+            <li><a href="https://micanaldepanama.com/" target="_blank" rel="noopener">Autoridad del Canal de Panamá</a></li>
+            <li><a href="https://whc.unesco.org/es/list/135" target="_blank" rel="noopener">UNESCO San Lorenzo</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Panamá Histórico. Diseñado con orgullo para la divulgación cultural e interactiva.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lógica JavaScript -->
+  <script src="app.js"></script>
+</body>
+</html>
