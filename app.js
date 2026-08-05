@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initTriviaQuiz();
   initSearch();
   initNavScroll();
+  initMobileMenu();
 });
 
 /* --------------------------------------------------------------------------
@@ -557,6 +558,31 @@ function initNavScroll() {
       if (link.getAttribute('href') === `#${current}`) {
         link.classList.add('active');
       }
+    });
+  });
+}
+
+/* --------------------------------------------------------------------------
+   9. MENÚ DE NAVEGACIÓN MÓVIL (HAMBURGER TOGGLE)
+   -------------------------------------------------------------------------- */
+function initMobileMenu() {
+  const menuBtn = document.getElementById('mobileMenuBtn');
+  const navMenu = document.querySelector('.nav-menu');
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  if (!menuBtn || !navMenu) return;
+
+  menuBtn.addEventListener('click', () => {
+    const isOpen = navMenu.classList.toggle('mobile-open');
+    menuBtn.classList.toggle('active-menu', isOpen);
+    menuBtn.innerHTML = isOpen ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+  });
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      navMenu.classList.remove('mobile-open');
+      menuBtn.classList.remove('active-menu');
+      menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
     });
   });
 }
